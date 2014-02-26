@@ -1,0 +1,178 @@
+//includes
+@import 'bourbon/bourbon';
+@import 'toast';
+@import 'framework';
+@import 'light';
+
+//selection
+::-moz-selection { background: $yellow; color: $black; text-shadow: none; }
+::selection { background: $yellow; color: $black; text-shadow: none; }
+
+//nav
+nav {
+	height: 200px;
+	width: 100%;
+	position: absolute;
+	z-index: 20;
+	.container {height: 60px;}
+
+		.logo {padding: 80px 20px 0 0; float: left;}
+
+			.nut {
+				@include notalink;
+				font-size: 100px;
+				display: inline-block;
+				-webkit-backface-visibility: hidden;
+				@include transition(all 0.1s ease-out);
+				@include animation(gonuts 4s ease-out);
+				@include animation-iteration-count(infinite);
+				@include animation-delay(4s);
+				.icon-nut {width: 90px;height: 100px;display: block;}
+			}
+
+		.navlist {
+			float: right;
+			height: 60px;
+			text-align: right;
+
+			li {
+				height: 60px;
+				display: inline-block;
+				opacity: 0;
+				@include center;
+				@include trans(opacity);
+
+				a {
+					display: inline-block;
+					height: 60px;
+					padding: 23px 10px;
+					min-width: 70px;
+					@include notalink;
+				}
+			}
+
+			&.off {
+				li {opacity: 0; &:hover {opacity: 0.5;}}
+			}
+
+			&.on {
+				li {opacity: 0.5;&:hover {opacity: 1;}}
+			}
+		} 
+	&:normal {
+		.navlist {
+			display: none;
+		}
+	}
+
+	&.scrolled {
+		.container {border-bottom: 1px solid $gray-light; padding: 0 20px;}
+		height: 60px;
+		position: fixed;
+		background-color: $white;
+			.logo {height: 60px; padding: 5px 0;}
+				.nut {
+					font-size: 50px;
+					.icon-nut {width: 45px;height: 50px;}
+				}
+	}
+}
+
+//header
+header {
+	background-color: $white;
+	min-height: 75%;
+	.container {
+		padding-top: 200px;
+		padding-bottom: 20px;
+	}
+	.intro-title {
+		@include themargin;
+		max-width: 500px;
+		position: relative;
+	}
+	.intro-text {
+		@include themargin; font-weight: normal;
+		max-width: 500px;
+		position: relative;
+	}
+}
+
+section {
+	padding-top: 20px!important;
+	.thumb {
+		margin-bottom: 3%;
+		@include trans(all);
+		.mask {
+				@include transition(all .7s ease);
+				background-color: $black;
+				z-index: 10;
+				height: 100%;
+				width: 100%;
+				opacity: 0;
+				z-index: 10;
+				position: absolute;
+				.title {
+					color: $white;
+					z-index: 11;
+					margin: 15px 0 0 20px;
+
+				}
+			}
+		a {
+			@include notalink;
+			display: block;
+			
+			&:hover {
+				.mask {opacity: 0.8;}
+			}
+		}
+	}
+}
+
+
+section {
+	.project {
+		@include thesupermargin;
+		.view {
+			@include butt($black);
+		}
+	}
+	.introduction {
+		@include center;
+		@include blockcenter;
+		max-width: 500px;
+	}
+	.project-shots {
+		text-align: center;
+		img {
+			display: block;
+			margin: 0 auto;
+			margin-bottom: $desktop;
+			&.mobile {
+				display: inline-block;
+				@include center;
+			}
+		}
+	}
+}
+
+footer {
+	@include padd(20px);
+	@include center;
+}
+
+@media (max-width: 480px) {
+  
+section {
+	img {
+		margin-bottom: $mobile;
+	}
+}
+
+}
+
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
+
+  body {background-size: 72px 72px;}
+}

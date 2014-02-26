@@ -1,0 +1,126 @@
+@import 'fonts';
+
+// classes
+.hidden {display: none;}
+.opaque {opacity: 0;}
+.pull-right {float: right;}
+.pull-left {float: left;}
+
+//vars
+$desktop: 20px;
+$mobile: 10px;
+
+//colors
+$white: #fff;
+$black: #2f4662;
+// $black: #000;
+$gray-light: #eef1f3;
+$yellow: #fff496;
+$red: #E07B70;
+$thumb-red: #eb8d8d;
+
+//animations
+@include keyframes(gonuts) {
+  0% {@include transform(rotate(-60deg));}
+  10% {@include transform(rotate(0deg));}
+  100% {@include transform(rotate(0deg));}
+}
+
+@include keyframes(fadeup) {
+0% {opacity: 0; @include transform(translateY(50px));}
+100% {opacity: 0;@include transform(translateY(0px));}
+}
+
+@include keyframes(fade) {
+	0% {
+		display: none;
+		opacity: 0;
+	}
+	1% {
+		display: block;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+//mixins
+@mixin marg($size) {margin: $size*2 $size;}
+@mixin padd($size) {padding: $size*2 $size;}
+@mixin themargin {margin-bottom: 30px;}
+@mixin thesupermargin {margin-bottom: 50px;}
+@mixin center {text-align: center;}
+@mixin blockcenter {margin: 0 auto;}
+@mixin absolutecenter {
+	margin: auto;
+  	position: absolute;
+  	top: 0; left: 0; bottom: 0; right: 0;
+}
+@mixin notalink {background-color: transparent!important; }
+@mixin butt($color) {
+	@include notalink;
+	border: 3px solid $color;
+	text-transform: uppercase;
+	display: inline-block;
+	padding: 15px;
+	font-weight: 700;
+	@include blockcenter;
+	@include center;
+	&:hover {
+		color: $white;
+		background-color: $color!important;
+	}
+}
+
+@mixin trans($type) {@include transition($type 0.2s ease);}
+
+//typography
+html {height: 100%;}
+body {
+	margin: 0;
+	height: 100%;
+	font-size:100%;
+	color: $black;
+	background-color: $gray-light;
+	font-family: Proxima Nova;
+}
+
+a {
+	color: $black;
+	background-color: $yellow;
+	text-decoration: none;
+	&:hover {
+		background-color: darken($yellow, 10%);
+	}
+}
+
+p {
+	line-height: 1.4em;
+	font-size: 1.2em; 
+	color: rgba($black, 0.7);
+}
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 1.2em;
+	font-weight: bold;
+	margin: 0;
+}
+
+h1 {font-size: 2.4em; }
+h2 {font-size: 1.9em;}
+h3 {font-size: 1.4em;}
+
+.yellowed {
+	background-color: $yellow!important;
+}
+
+img {
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+ul {
+	list-style: none; 
+	margin: 0;
+	padding: 0;
+}

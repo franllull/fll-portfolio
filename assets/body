@@ -1,0 +1,78 @@
+---- PORTFOLIO TO - DO -----
+
+- Code first prototype
+
+-------- www.franllull.com ------
+
+// index 
+	1. work
+	2. ideas
+	3. contact
+
+
+---- work ---
+
+"My name is Francesc Llull and I {craft} {web interactions} / develop robust front-end code / believe in emotional design / design interfaces / bike all the time / embrace curiosity / eat avocado-banana cream for breakfast /  think that's pretty much it --> work
+
+-switch to mobile-
+
+(pic)
+Lieferheld
+I joined the Lieferheld Web Experience Team in Berlin, and worked for six weeks on the launch of their website redesign.
+My role was to help build a consistent style guide and bring a new design to life.
+Technologies used: Sass, Javascript, Icon Fonts, Django.
+
+(pic)
+Bemak
+Bemak is a small marketing agency. 
+I created a mobile-friendly website to introduce the company and their services.
+Technologies used: Bootstrap, Hammer, Sass, Javascript, Icon Fonts.
+
+(pic)
+Lucas Ottone
+Portfolio website for freelance fashion photographer Lucas Ottone.
+I built a clean and responsive personal website to showcase image categories.
+Technologies used: CSS3, Javascript.
+
+(pic)
+Recetas Mallorquinas
+Wordpress site for blogger Francisca Llinàs.
+I created a responsive wordpress theme from scratch, building a default post structure to introduce meta data easily.
+Technologies used: CSS3, Javascript.
+
+(pic)
+Sixact
+Sixact is a prototype for a simple payroll calculator. 
+It needed a landing page inviting new users to try the calculator, the calculator fomular, and a clear result of it.
+Technologies used: Bootstrap, Hammer, SASS, Javascript.
+
+---- ideas ----
+
+Thoughts after a year after living without Facebook
+
+
+---- contact ----
+
+I'm a detail-oriented web designer, passionate about the use of emotional design in interactive technologies. I focus on making it useful, accessible, understandable, beautiful and long-lasting. My main fields are responsive web design, CSS3, and typography.
+
+In case you ask, I'd say life is about learning all the time, enjoying it and developing awareness of nature. 
+The future belongs to the curious. http://vimeo.com/34853044
+
+
+Take a deeper look to my previous - LinkedIn {http://www.linkedin.com/profile/view?id=92778085}
+Sometimes I share stuff on Twitter
+Add me as a - Contact {Francesc_Llull.vcf}
+Send me an email (tooltip - the shorter the better) {mailto:@franllull.com}
+
+--------------- stuff ------------------
+
+.dropcap {
+color: #282828;
+font-family: "Tungsten A","Tungsten B","Tungsten","TrumpGothic","Arial Narrow",sans-serif;
+font-size: 76px;
+float: left;
+line-height: 76px;
+margin: -5px 10px -5px 0;
+}
+
+
