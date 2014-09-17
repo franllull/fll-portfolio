@@ -1,48 +1,57 @@
+// $(document).ready(function(){
+//     $('html').animate({scrollTop:0}, 1);
+//     $('body').animate({scrollTop:0}, 1);
+// });
+
 $(document).ready(function($) {
-	$(this).scrollTop(0);
 
-	$(".nut").waypoint(function(up) {
-		$(".nav").removeClass("scrolled").addClass("normal")
-	});
+    //sticking nav in homepage
+    $(".intro-title").waypoint(function(up) {
+    	$(".nav").removeClass("scrolled").addClass("normal")
+    });
+        $(".intro-title").waypoint(function(down) {
+        	$(".nav").removeClass("normal").addClass("scrolled")
+        });
 
-	$(".nut").waypoint(function(down) {
-		$(".nav").removeClass("normal").addClass("scrolled")
-	});
+    //changing nav on project page
+    $(".introduction").waypoint(function(up) {
+        $(".nav").removeClass("scrolled").addClass("normal")
+    });
+        $(".introduction").waypoint(function(down) {
+            $(".nav").removeClass("normal").addClass("scrolled")
+        });
 
-	$(".intro-title").waypoint(function(up) {
-		$(".navlist").removeClass("on").addClass("off")
-	});
+    //sticking project-nav in project page
+    $(".project-nav").waypoint(function(up) {
+    	$(".project-nav").removeClass("scrolled").addClass("normal")
+    });
+        $(".project-nav").waypoint(function(down) {
+        	$(".project-nav").removeClass("normal").addClass("scrolled")
+        });
 
-	$(".intro-title").waypoint(function(down) {
-		$(".navlist").removeClass("off").addClass("on")
-	});
+    //toggling nav in project page
+    $(".list").click(function() {
+        $(".nav").toggleClass("on");
+        $(".project-nav").toggleClass("downed");
+    })
+    
+    //disabling click on dead links
+    $('.disabled').click(function(e) {
+        e.preventDefault();
+    });
 
-	$('.websiteslink').click(function(){
-	    $.scrollTo( $('#websites'), 800, {offset:-59} );
-	});
+    //init beautiful select boxes
+    $(".chosen-select").chosen({width: "100%", disable_search_threshold: 10}); 
 
 });
 
-$(document).ready(function() {
-    
-    /* Every time the window is scrolled ... */
     $(window).scroll( function(){
-    
-        /* Check the location of each desired element */
         $('.opaque').each( function(i){
-            
             var bottom_of_object = $(this).position().top + $(this).outerHeight();
             var bottom_of_window = $(window).scrollTop() + $(window).height();
-            
             /* If the object is completely visible in the window, fade it it */
-            if( bottom_of_window > bottom_of_object ){
-                
-                $(this).animate({'opacity':'1'},500);
-                    
+            if( bottom_of_window > bottom_of_object - 50 ){
+                $(this).animate({'opacity':'1'},1000).addClass("goup");
             }
-            
         }); 
-    
-    });
-    
 });

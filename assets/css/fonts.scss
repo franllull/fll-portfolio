@@ -1,11 +1,11 @@
-// fonts
+//fonts
 @font-face {
 	font-family: 'franfont';
-	src:url('fonts/franfont.eot?-mnjqfi');
-	src:url('fonts/franfont.eot?#iefix-mnjqfi') format('embedded-opentype'),
-		url('fonts/franfont.woff?-mnjqfi') format('woff'),
-		url('fonts/franfont.ttf?-mnjqfi') format('truetype'),
-		url('fonts/franfont.svg?-mnjqfi#franfont') format('svg');
+	src:url('fonts/franfont.eot?-w0284w');
+	src:url('fonts/franfont.eot?#iefix-w0284w') format('embedded-opentype'),
+		url('fonts/franfont.woff?-w0284w') format('woff'),
+		url('fonts/franfont.ttf?-w0284w') format('truetype'),
+		url('fonts/franfont.svg?-w0284w#franfont') format('svg');
 	font-weight: normal;
 	font-style: normal;
 }
@@ -24,6 +24,33 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
-.icon-nut:before {
+.icon-twitter:before {
+	content: "\f099";
+}
+.icon-mail:before {
+	content: "\f0e0";
+}
+.icon-linkedin:before {
+	content: "\f0e1";
+}
+.icon-bug:before {
+	content: "\f188";
+}
+.icon-list:before {
+	content: "\e605";
+}
+.icon-plusarrow:before {
+	content: "\e604";
+}
+.icon-grid:before {
 	content: "\e600";
+}
+.icon-xarrow:before {
+	content: "\e601";
+}
+.icon-rarrow:before {
+	content: "\e602";
+}
+.icon-larrow:before {
+	content: "\e603";
 }

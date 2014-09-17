@@ -1,178 +1,454 @@
 //includes
-@import 'bourbon/bourbon';
 @import 'toast';
 @import 'framework';
+@import 'chosen';
 @import 'light';
 
-//selection
-::-moz-selection { background: $yellow; color: $black; text-shadow: none; }
-::selection { background: $yellow; color: $black; text-shadow: none; }
-
-//nav
+//navigation 
 nav {
-	height: 200px;
-	width: 100%;
+	background-color: $white;
+	height: 60px;
+	opacity: 0;
 	position: absolute;
+	width: 100%;
 	z-index: 20;
-	.container {height: 60px;}
+	@include grayedhover;
+	@include transition(opacity 0.5s ease-out);
+	.container {height: 60px; padding: 0 20px; border-bottom: 1px solid $gray-light;}
 
-		.logo {padding: 80px 20px 0 0; float: left;}
+	&.normal {
+		opacity: 0;
+		@include transition(opacity 0.5s ease-out);
+	}
 
-			.nut {
-				@include notalink;
-				font-size: 100px;
-				display: inline-block;
-				-webkit-backface-visibility: hidden;
-				@include transition(all 0.1s ease-out);
-				@include animation(gonuts 4s ease-out);
-				@include animation-iteration-count(infinite);
-				@include animation-delay(4s);
-				.icon-nut {width: 90px;height: 100px;display: block;}
-			}
-
-		.navlist {
-			float: right;
+	.logo {
+		display: inline-block;
+		@include notah;
+		a {
+			display: inline-block;
 			height: 60px;
-			text-align: right;
+			padding: 10px 7px;
+			@include notalink;
 
-			li {
+		}
+	}
+
+	.navlist {
+		display: inline-block;
+		float: right;
+		height: 60px;
+		text-align: right;
+		border-left: 1px solid $gray-light;
+		li {
+			display: inline-block;
+			border-right: 1px solid $gray-light;
+			height: 60px;
+			min-width: 72px;
+			@include center;
+		
+			a {
+				background-color: $white;
+				display: block;
 				height: 60px;
-				display: inline-block;
-				opacity: 0;
-				@include center;
-				@include trans(opacity);
-
-				a {
-					display: inline-block;
-					height: 60px;
-					padding: 23px 10px;
-					min-width: 70px;
-					@include notalink;
-				}
+				min-width: 70px;
+				padding: 23px 10px;
+				@include notalink;
+				@include grayedhover;
 			}
-
-			&.off {
-				li {opacity: 0; &:hover {opacity: 0.5;}}
-			}
-
-			&.on {
-				li {opacity: 0.5;&:hover {opacity: 1;}}
-			}
-		} 
-	&:normal {
-		.navlist {
-			display: none;
 		}
 	}
 
 	&.scrolled {
-		.container {border-bottom: 1px solid $gray-light; padding: 0 20px;}
-		height: 60px;
+		opacity: 1;
 		position: fixed;
-		background-color: $white;
-			.logo {height: 60px; padding: 5px 0;}
-				.nut {
-					font-size: 50px;
-					.icon-nut {width: 45px;height: 50px;}
-				}
+	}
+
+}
+
+.project nav, .planner nav {
+	opacity: 1;
+	position: absolute;
+	top: 0;
+	border-bottom: 1px solid $gray-light;
+	@include transition(all 0.3s ease-out);
+	
+	&.on {
+		position: fixed;
+		top: 0;
 	}
 }
 
-//header
-header {
+//project navigation 
+.project-nav {
 	background-color: $white;
-	min-height: 75%;
-	.container {
-		padding-top: 200px;
-		padding-bottom: 20px;
+	border-bottom: 1px solid darken($gray-light, 7%);
+	display: block;
+	height: 60px;
+	left: 0%;
+	min-width: 300px;
+	position: fixed;
+	top: 0;
+	z-index: 10;
+	width: 100%;
+	&.downed {
+		top: 60px;
+	}
+
+	.container {height: 60px;}
+
+	.arrows {
+		@include center;
+		height: 60px;
+		.arrow {
+			@include grayedhover;
+			span {vertical-align: center; display: inline-block; padding: 10px 0;}
+		}
+		.marrow, .larrow {text-align: left;}
+		.xarrow, .rarrow {text-align: right;}
+	}
+}
+
+//index head and thumbnails
+header {
+	height: 65%;
+	max-height: 700px;
+	min-height: 500px;
+	padding-bottom: 20px;
+	padding-top: 200px;
+	z-index: 15px;
+	@include center;
+	.centerer {
+		@include absolutecenter(220px);
+		.grid {padding-top: 70px;}
+	}
+
+	//header grid
+	.logoface {
+		display: block;
+		margin-bottom: 5px;
+		height: 150px;
+		width: 150px;
+		background: url('fran.jpg');
+		border-radius: 180px;
+		@include blockcenter;
+		@include notalink;
 	}
 	.intro-title {
-		@include themargin;
-		max-width: 500px;
 		position: relative;
+		@include notah;
+	}
+	.intro-subtitle {
+		font-style: italic;
+		font-weight: normal;
+		//color
+		@include grayed;	
 	}
 	.intro-text {
-		@include themargin; font-weight: normal;
-		max-width: 500px;
-		position: relative;
+		text-align: left;
+		padding: 25px 50px;
+		p { 
+			@include grayed;
+			@include blockcenter;
+			font-weight: normal;
+			max-width: 500px;
+		}
 	}
 }
 
 section {
 	padding-top: 20px!important;
+	&.webs, &.form {
+		padding-top: 80px!important;
+	}
+
 	.thumb {
 		margin-bottom: 3%;
-		@include trans(all);
+		@include center;
+
+		a {
+			display: block;
+			@include notalink;
+			&:hover {
+				outline: 0;
+				img {
+					@include blur(3px);
+				}
+				.mask {opacity: 0.75; @include transition(opacity 0.1s ease-out);}
+				.title {
+					@include animation(fadeup 0.2s ease-out);
+					opacity: 1;
+				}
+			}
+		}
+
 		.mask {
-				@include transition(all .7s ease);
-				background-color: $black;
+				background-color: $white;
 				z-index: 10;
 				height: 100%;
 				width: 100%;
 				opacity: 0;
-				z-index: 10;
 				position: absolute;
-				.title {
-					color: $white;
-					z-index: 11;
-					margin: 15px 0 0 20px;
+				@include transition(opacity 0.5s ease-out);
+			}
+		
+		.title {
+			z-index: 11;
+			padding: 10px 0 0 10px;
+			opacity: 0;
+			@include absolutecenter(70px);
+			@include center;
+		}
 
+		&.yaproject {
+			.icon {opacity: 0;}
+			.title-yaproject {margin-top: 35px; @include transition(all 0.4s ease-out);}
+			a {@include transition(all 0.4s ease-out);} 
+			a:hover {
+				@include transition(all 0.4s ease-out);
+				.title-yaproject {margin-top: -5px; @include transition(all 0.4s ease-out);}
+				.icon {
+					@include animation(crazy 0.4s ease-out);
+					@include animation-fill-mode(forwards);
 				}
 			}
-		a {
-			@include notalink;
-			display: block;
-			
-			&:hover {
-				.mask {opacity: 0.8;}
+
+		}
+
+		.mask-yaproject {
+			z-index: 10;
+			height: 100%; width: 100%;
+			opacity: 1;
+			position: absolute;
+			@include center;
+			.untermask {
+				@include absolutecenter(100px);
 			}
 		}
 	}
 }
 
 
+// project page
+body.project {background-color: $gray-light;}
+
 section {
-	.project {
+	&.project {
 		@include thesupermargin;
-		.view {
-			@include butt($black);
-		}
 	}
 	.introduction {
 		@include center;
 		@include blockcenter;
 		max-width: 500px;
+		margin: 150px auto 70px auto;
 	}
 	.project-shots {
 		text-align: center;
 		img {
 			display: block;
 			margin: 0 auto;
-			margin-bottom: $desktop;
+			@include mmargin;
 			&.mobile {
 				display: inline-block;
 				@include center;
 			}
 		}
 	}
-}
-
-footer {
-	@include padd(20px);
-	@include center;
-}
-
-@media (max-width: 480px) {
-  
-section {
-	img {
-		margin-bottom: $mobile;
+	.outroduction {
+		@include center;
+		.view {
+			@include butt(10px);
+			vertical-align: middle;
+		}
 	}
 }
 
+
+//planner
+
+body.planner {background: rgba($yellow, 0.8);}
+
+form {
+	background-color: $white;
+	border: 1px solid $gray-light;
+	padding: 50px;
+	min-height: 800px;
+	h2 {@include mmargin;}
+	max-width: 600px;
+	@include thesupermargin;
+	input {display: block;}
+	input:required, textarea:required {
+	    -moz-box-shadow:none;
+	    -webkit-box-shadow:none;
+	    -o-box-shadow:none;
+	    box-shadow:none;
+	}
+	label {display: inline-block; margin: 20px 0 5px 0; color: $black;}
+	select {
+		width: 100%;
+		padding: 10px;
+		height: 35px;
+	}
+	input[type='checkbox'] {
+		display: block;
+	}
+	textarea, input[type='text'], textarea, input[type='email'] {
+		width: 100%;
+		height: 35px;
+		padding: 7px 10px;
+		font-size: 0.8em;
+		border-radius: 2px;
+		border: 1px solid rgba($black, 0.5);
+		&:focus {
+			border: 1px solid rgba($black, 0.9);
+			outline: none;
+		}
+	}
+	textarea {resize:vertical; min-height: 100px;}
+	.butt {
+		@include mmargin;
+		background-color: $black!important;
+		color: $white!important;
+	}
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 1.5) {
 
-  body {background-size: 72px 72px;}
+//footer
+footer {
+	margin-top: 40px;
+	.container {
+		@include padd(20px);
+		@include center;
+		border-top: 1px solid $gray-light;
+		small {display: inline-block; max-width: 500px;}
+	}
+	.contact-links {
+		@include mmargin;
+		li {display: inline-block;}
+		a {
+			@include notalink; 
+			@include grayedhover;
+			font-size: 25px; 
+			margin-right: 25px;
+		}
+		i {display: none;}
+	}
+}
+
+.project, .planner {
+	footer {
+		background-color: $white;
+		border-top: 1px solid darken($gray-light, 7%);
+	}
+}
+
+.success {
+	footer {
+		position: absolute;
+		bottom: 0;
+		width: 100%;
+	}
+}
+
+
+
+//media queries width 
+@media (max-width: 900px) {
+	body {
+		font-size: 92%;
+	}
+
+	header {
+		.intro-text {padding: 50px;}
+		.unit {
+			width: auto;
+			margin-left: 0;
+			display: block;
+		}
+		.centerer {
+			height: 500px;
+			.grid {padding-top: 20px;}
+		}
+	}
+
+	section {
+		.introduction {margin-top: 100px;}
+	}
+	form {
+		.butt {-webkit-appearance: none;}
+	}
+
+}
+
+
+
+
+@media (max-width: 767px) {
+	body {font-size: 90%;}
+	form {padding: 20px;}
+}
+
+
+@media (max-width: 570px) {
+
+	header {
+		height: 100%;
+		.intro-text {@include padd(20px);}
+	}
+
+	.nav .logo a {
+		padding: 13px 7px;
+	}
+
+	section {
+		img {
+			margin-bottom: $mobile;
+		}
+
+		.thumb {
+		background-color: $white;
+			a {
+				&:hover {
+					.title {@include animation(fadeup 0s ease-out);}
+					img {@include blur(0px);}
+				}
+			}
+		}
+	}
+
+
+	.mask {display: none;}
+	.thumb {
+		background-color: $white;
+		a {
+			&:hover {
+				.title {@include animation(fadeup 0s ease-out);}
+
+			}
+		}
+	}
+	.title {
+		height: auto!important;
+		font-size: 1.2em;
+		top: auto!important; left: auto!important; right: auto!important;
+		padding: 20px!important;
+		width: 100%;
+		min-height: 70px;
+		opacity: 1!important;
+		background-color: rgba($white, 0.7);
+	}
+}
+
+//media queries height
+@media (max-height: 570px) {
+	header {
+		.centerer {
+			.grid {padding-top: 20px;}
+		}
+	}
+}
+
+//retina
+
+@media (-webkit-min-device-pixel-ratio: 2),  (min-resolution: 192dpi) { 
+	header {.logoface {background: url('fran@x2.jpg'); background-size:150px 150px;}} 
 }

@@ -1,0 +1,30 @@
+<!-- $pagetype planner -->
+<!-- $title Your Project -->
+
+<!-- @include _header -->
+
+<script src="<!-- @path validator.js -->" type="text/javascript"></script>
+
+<!-- @include _nav -->
+
+<script type="text/javascript">
+	$(".chosen-select").chosen({disable_search_threshold: 10});	
+</script>
+
+<section class="form project container">
+	<form class="form" method="post" name="myemailform" action="form-to-email.php">
+		<h2>Yeah! I received your message.</h2>
+		<p>You can expect a reply during the next 1-2 days.</p>
+		<p>Feel free to take a look...</p>
+		<ul>
+			<li><a target="_blank" href="https://www.linkedin.com/in/franllull">LinkedIn</a></li>
+			<li><a target="_blank" href="http://twitter.com/FrancescLlull">Twitter</a></li>
+			<li><a target="_blank" href="http://open.spotify.com/user/francescllull">Spotify</a></li>
+		</ul>
+	</form>
+
+</section>
+
+<div class="success">
+<!-- @include _footer -->
+</div>
