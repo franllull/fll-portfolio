@@ -171,7 +171,7 @@ section {
 			&:hover {
 				outline: 0;
 				img {
-					@include blur(3px);
+					opacity: .45;
 				}
 				.mask {opacity: 0.75; @include transition(opacity 0.1s ease-out);}
 				.title {
